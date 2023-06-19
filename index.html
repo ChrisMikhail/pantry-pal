@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <script src="https://kit.fontawesome.com/6cfa9da1e4.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>PantryPal</title>
+</head>
+
+<body>
+    <div id="display-nav"></div>
+    <div class="middle" id="middle"></div>
+
+    <script type="text/babel">
+
+        const navbar = (
+            <nav id="nav">
+                <a class="navbar-sect" href="index.html">PantryPal</a>
+                <a class="navbar-sect" id="login">Login</a>
+            </nav>
+        );
+
+        const searchbar = (
+            <div id="search-bar">
+                <form method="POST" action="/search" id="text-form">
+                    <div class="dropdown">
+                        <button class="dropbtn" id="firstBox"><i class="fa-solid fa-arrow-right fa-rotate-90"></i> Meal</button>
+                        <div class="dropdown-content" id="dropdownContent">
+                            <a id="breakfast" class="meals">Breakfast</a>
+                            <a id="brunch" class="meals">Brunch</a>
+                            <a id="lunch" class="meals">Lunch</a>
+                            <a id="dinner" class="meals">Dinner</a>
+                            <a id="dessert" class="meals">Dessert</a>
+                            <a id="snack" class="meals">Snack</a>
+                        </div>
+                    </div>
+                    <input type="hidden" name="SelectedMeal" id="selectedMeal" />
+                    <input type="text" name="Food" placeholder="Ingredients (eggs, milk, ...)" />
+                    <input type="text" name="Calories" placeholder="Calories (500, 700-900, ...)" />
+                    <input type="text" name="Culture" placeholder="Culture (Thai, Egyptian, ...)" />
+                    <input type="submit" value="Submit" id="lastBox" />
+                </form>
+            </div>
+        );
+        ReactDOM.render(navbar, document.getElementById('display-nav'));
+        ReactDOM.render(searchbar, document.getElementById('middle'));
+        
+        const dropdown = document.querySelector("#firstBox");
+        const dropdownContent = document.getElementById("dropdownContent");
+        const form = document.getElementById('text-form');
+        const mealInput = document.getElementById('selectedMeal');
+        let selectedOption = null;
+
+        dropdownContent.addEventListener('mouseenter', function () {
+            dropdown.style.borderRadius = '20px 0 0 0';
+        });
+
+        dropdownContent.addEventListener('mouseleave', function () {
+            dropdown.style.borderRadius = '';
+        });
+
+        dropdownContent.addEventListener('click', function (event) {
+            const selectedMeal = event.target.id;
+            mealInput.value = selectedMeal;
+
+            if (selectedOption) {
+                selectedOption.style.backgroundColor = '';
+            }
+
+            event.target.style.backgroundColor = "#ddd";
+            selectedOption = event.target;
+        });
+
+        const dropdownButton = document.getElementById('firstBox');
+        dropdownButton.addEventListener('click', function (event) {
+            event.preventDefault();
+        });
+
+    </script>
+    <!-- <script src="static/main.js"></script> -->
+</body>
+
+</html>

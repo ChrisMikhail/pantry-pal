@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+    <script src="https://kit.fontawesome.com/6cfa9da1e4.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>PantryPal</title>
+</head>
+
+<body id="recipePG">
+    <div id="display-nav"></div>
+    <div id="info-section"></div>
+
+    <script type="text/babel">
+
+        const navbar = (
+            <nav id="nav">
+                <a class="navbar-sect" href="index.html">PantryPal</a>
+                <a class="navbar-sect" id="login">Login</a>
+            </nav>
+        );
+
+        let Food = "{{ Food }}";
+        let Calories = "{{ Calories }}";
+        let Culture = "{{ Culture }}";
+        let Recipe = `{{ Recipe|safe }}`;
+        let Meal = '{{ Meal }}';
+
+        const displayInfo = (
+            <div id="info-div">
+                <div className="grid-content">
+                    <p>{Recipe}</p>
+                </div>
+            </div>
+        );
+
+        ReactDOM.render(displayInfo, document.getElementById('info-section'));
+        ReactDOM.render(navbar, document.getElementById('display-nav'));
+    </script>
+
+</body>
+
+</html>
