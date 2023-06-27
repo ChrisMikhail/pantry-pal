@@ -15,4 +15,4 @@ def search():
     return render_template('recipePage.html', Recipe=recipe, Food=form_data["Food"].lower(), Calories=form_data["Calories"].lower(), Culture=form_data["Culture"].lower(), Meal = form_data["SelectedMeal"])
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)

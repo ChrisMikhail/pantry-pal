@@ -5,13 +5,12 @@
 }
 
 body {
-    height: 100%;
-    width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.33), rgba(0, 0, 0, 0.33)), url('food-bg.jpeg');
     color: white;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-}
+    background-size: cover;
+  }
 
 a {
     color: white;
@@ -40,7 +39,7 @@ nav a {
 .middle {
     width: 70%;
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -48,17 +47,18 @@ nav a {
 form {
     margin-top: 0.5rem;
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
-input[type=text],
+input[type="text"],
 select {
-    padding: 17px 20px;
-    margin: -0.25rem;
+    border: none;
+    border-radius: 0;
+    padding: 10px;
+    margin: 0;
     font-family: 'Poppins', sans-serif;
-    width: calc(10px + 45%);
+    flex-grow: 1;
+    box-sizing: border-box;
 }
 
 input[type=text]:focus {
@@ -68,22 +68,27 @@ input[type=text]:focus {
 #firstBox {
     border-radius: 20px 0 0 20px;
     font-family: 'Poppins', sans-serif;
-    display: flex;
+    height: 100%;
+    padding: 0 18.5px;
+
 }
 
 #lastBox {
     border-radius: 0 20px 20px 0;
     font-family: 'Poppins', sans-serif;
+    height: 100%;
+    padding: 12px 20px;
 }
 
-input[type=submit] {
-    padding: 18.5px 20px;
+input[type="submit"] {
+    padding: 10px;
     border: none;
     cursor: pointer;
+    height: 100%;
 }
 
 .dropbtn {
-    padding: 18.5px;
+    padding: 10px;
     border: none;
 }
 
@@ -119,10 +124,37 @@ input[type=submit] {
     border-radius: 20px 0 0 0;
 }
 
+@media only screen and (max-width: 1015px) {
+    form {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    input[type="text"],
+    select {
+        flex-grow: initial;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #firstBox,
+    #lastBox {
+        width: 100%;
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    body {
+	background-size: auto;
+    }
+}
+
 #info-div p {
     font-weight: 600;
     top: 3rem;
     left: 4.4rem;
+    right: 4.4rem;
     font-size: 1.3rem;
     position: absolute;
     max-width: calc(100% - 2rem);
