@@ -1,4 +1,4 @@
-# pantry-pal-redo
+# pantry-pal
 
 https://pantrypal.cc
 
