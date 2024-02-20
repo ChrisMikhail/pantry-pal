@@ -1,6 +1,6 @@
 # pantry-pal
 
-https://pantrypal.cc
+https://pantrypal.cc Link no longer valid
 
 ![image](https://github.com/ChrisMikhail/pantry-pal-redo/assets/112285076/25aa7bed-a393-48a0-930a-6e814c8e43f5)
 
